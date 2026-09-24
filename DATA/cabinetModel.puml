@@ -6,69 +6,126 @@ class "/" as root
 
 class Cabinet {
     nomC : String 
+    adresseC : Adresse
 }
 
-class AdresseCabinet {
-    numeroC : int {minimum 1}
-    rueC : String 
-    codePostalC : int {pattern "[0-9]{5}"}
-    villeC : String
+class EntiersPositifs  <<restriction : int>>{
+    supérieur ou égale à 0
+}
+
+class CodePostal  << restriction :int>>{
+    pattern "[0-9][0-9][0-9][0-9][0-9]"
+}
+
+class Nom  << restriction :String >>{
+    pattern "[A-Z][a-zéèêëàâîïôöùûüç]+"
+
 }
 
 class Infirmiers {
 }
 
 class Infirmier {
-    (Attribut) idI : int {pattern "[0-9]{3}"}
-    nomI : String
-    prenomI : String
-    photo : String {pattern "*.jpg"}
+    (Attribut) idI : Indentifiant
+    nomI : Nom
+    prenomI : Nom
+    photo : Photo
+}
+
+class Identifiant  << restriction : int >>{
+    pattern "[0-9][0-9][0-9]"
+}
+
+class Photo << restriction : String>>{
+    pattern "*.jpg"
 }
 
 class Patients {
 }
 
 class Patient {
-    nomP : String
-    prenomP : String
-    sexe : String {enumeration : "F,M"}
+    nomP : Nom
+    prenomP : Nom
+    sexe : Sexe
     naissance : date
-    numeroSS : String  {pattern "[12]........"}
+    adresseP : Adresse
+    numeroP : NumeroSecurite
+}
+
+class Sexe << enumeration : String>>{
+    F
+    M
+    Autre
+}
+
+class NumeroSecurite << restriction : String >>{
+    pattern "[12][0-9]{2}(0[1-9]|1[0-2])[0-9]{2}[0-9]{3}[0-9]{3}[0-9]{2}"
 }
 
 
-class AdressePatient {
-    etage : int 
-    numeroP : int {optionnel}
-    rueP : String
-    codePostalP : int {pattern "[0-9]{5}"}
-    villeP : String
+class Adresse {
+    etage : EntiersPositifs 
+    numero : EntiersPositifs
+    rue : String
+    codePostal : CodePostal
+    ville: Nom
 }
 
 class Visite {
     (Attribut) date : date 
-    (Attribut) intervenant :  int {pattern "[0-9]{3}"}
+    (Attribut) intervenant :  Identifiant
 }
 
 class Acte {
-    (Attribut) idA : int {pattern "[0-9]{3}"}
-    (Attribut) type : String {enumeration "pi,pc,pl,sd"}
-    (Attribut) clé : String {enumeration "AMI, AIS, DI"}
+    (Attribut) idA : Identifiant
+    (Attribut) type : TypeActe
+    (Attribut) cle : cleActe
     (Attribut) coef : float
 }
 
-root <-- Cabinet
-Cabinet *-- AdresseCabinet : 1
-Cabinet *-- Infirmiers : 1
-Cabinet *-- Patients : *
-Infirmiers *-- Infirmier : *
-Patients *-- Patient : *
-Patient *-- AdressePatient : 1
-Patient *-- Visite : *
-Visite *-- Acte : *
+class TypeActe <<enumeration : String>> {
+    pi
+    pc
+    pl
+    sd
+}
 
-note as N1
-"Tous les noms, prenoms et villes doivent commencer par une lettre majuscule donc pattern "[A-Z]*"
-end note
+class CleActe <<enumeration : String>> {
+    AMI
+    AIS
+    DI
+}
+
+
+root <-- Cabinet
+Cabinet *-- Adresse : 1
+Cabinet *-- Infirmiers : 1
+Cabinet *-- Patients : 1
+
+Adresse *-- EntiersPositifs : 2
+Adresse *-- CodePostal : 1
+Adresse *-- Nom : 1
+note right of Adresse : etage est optionnel 
+
+Infirmiers *-- Infirmier : 1..*
+Infirmier *-- Nom : 2
+Infirmier *-- Identifiant : 1
+Infirmier *-- Photo : 1
+
+Patients *-- Patient : 1..*
+Patient *-- Adresse : 1
+Patient *-- Visite : 0..*
+Patient *-- Nom : 2
+Patient *-- Sexe : 1
+Patient *-- NumeroSecurite : 1
+
+Visite *-- Acte : 1..*
+
+Acte *-- TypeActe : 1
+Acte *-- CleActe : 1
+Acte *-- Identifiant : 1
+note left of Identifiant : Même identifiant que Infirmier
+
+
 
 @enduml
