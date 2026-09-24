@@ -1,0 +1,70 @@
+@startuml
+hide circle
+hide empty members
+
+class "/" as root
+
+class Cabinet {
+    nomC : String 
+}
+
+class AdresseCabinet {
+    numeroC : int {minimum 1}
+    rueC : String 
+    codePostalC : int {pattern "[0-9]{5}"}
+    villeC : String
+}
+
+class Infirmiers {
+}
+
+class Infirmier {
+    (Attribut) idI : int {pattern "[0-9]{3}"}
+    nomI : String
+    prenomI : String
+    photo : String {pattern "*.jpg"}
+}
+
+class Patients {
+    nomP : String
+    prenomP : String
+    sexe : String {enumeration : "F,M"}
+    naissance : date
+    numeroSS : String  {pattern "[12]........"}
+}
+
+
+class AdressePatient {
+    etage : int 
+    numeroP : int {optionnel}
+    rueP : String
+    codePostalP : int {pattern "[0-9]{5}"}
+    villeP : String
+}
+
+class Visite {
+    (Attribut) date : date 
+    (Attribut) intervenant :  int {pattern "[0-9]{3}"}
+}
+
+class Acte {
+    (Attribut) idA : int {pattern "[0-9]{3}"}
+    (Attribut) type : String {enumeration "pi,pc,pl,sd"}
+    (Attribut) clé : String {enumeration "AMI, AIS, DI"}
+    (Attribut) coef : float
+}
+
+root <-- Cabinet
+Cabinet *-- AdresseCabinet : 1
+Cabinet *-- Infirmiers : 1
+Cabinet *-- Patients : *
+Infirmiers *-- Infirmier : *
+Patients *-- AdressePatient : 1
+Patients *-- Visite : *
+Visite *-- Acte : *
+
+note as N1
+"Tous les noms, prenoms et villes doivent commencer par une lettre majuscule donc pattern "[A-Z]*"
+end note
+
+@enduml

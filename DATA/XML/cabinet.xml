@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cabinet xmlns ="xmlns='http://www.univ-grenoble-alpes.fr/l3miage/actes"
+         xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation ="xmlns='http://www.univ-grenoble-alpes.fr/l3miage/actes ../XSD/cabinet.xsd"
+        >
+
+</cabinet>
