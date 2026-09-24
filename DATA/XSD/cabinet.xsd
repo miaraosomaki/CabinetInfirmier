@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:cb="xmlns='http://www.univ-grenoble-alpes.fr/l3miage/actes'"    
+        xmlns:cb="http://www.univ-grenoble-alpes.fr/l3miage/actes"    
         targetNamespace ="http://www.univ-grenoble-alpes.fr/l3miage/actes"
         elementFormDefault="qualified"
 >
+    <element name="cabinet" type="cb:Cabinet"/>
+    <complexType name="Cabinet">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="adresse" type="cb:AdresseCabinet"/>
+            <element name="Infirmiers" type="cb:Infirmiers"/>
+            <element name="patients" type="cb:Patients"/>
+        </sequence>
+    </complexType>
+
+    <sequence>
+        <element name="infirmier" type="cb:Infirmier" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
     
 </schema>

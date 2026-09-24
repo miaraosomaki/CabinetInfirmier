@@ -26,6 +26,9 @@ class Infirmier {
 }
 
 class Patients {
+}
+
+class Patient {
     nomP : String
     prenomP : String
     sexe : String {enumeration : "F,M"}
@@ -59,8 +62,9 @@ Cabinet *-- AdresseCabinet : 1
 Cabinet *-- Infirmiers : 1
 Cabinet *-- Patients : *
 Infirmiers *-- Infirmier : *
-Patients *-- AdressePatient : 1
-Patients *-- Visite : *
+Patients *-- Patient : *
+Patient *-- AdressePatient : 1
+Patient *-- Visite : *
 Visite *-- Acte : *
 
 note as N1
