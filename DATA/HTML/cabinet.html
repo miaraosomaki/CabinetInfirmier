@@ -1,0 +1,228 @@
+<html lang="fr">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cabinet M&eacute;dical : Soins &agrave; Grenoble</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/cabinet.css">
+    </head>
+    <body>
+        <header class="app-header">
+            <h1>Cabinet M&eacute;dical : Soins &agrave; Grenoble</h1>
+        </header>
+        <div class="tabs-container">
+            <input type="radio" name="tab-nav" id="tab-accueil" checked><input type="radio" name="tab-nav" id="tab-infirmiers"><input type="radio" name="tab-nav" id="tab-soins"><input type="radio" name="tab-nav" id="tab-patients">
+            <nav class="tabs-nav">
+                <label for="tab-accueil" class="tab-label">Accueil</label><label for="tab-infirmiers" class="tab-label">Cabinet infirmier</label><label for="tab-soins" class="tab-label">Soins</label><label for="tab-patients" class="tab-label">Patients</label>
+            </nav>
+            <main class="tabs-content">
+                <section class="page" id="page-accueil">
+                    <h2>Pr&eacute;sentation du cabinet</h2>
+                    <div class="card info-box">
+                        <p>
+                            <strong>Nom :</strong>Soins &agrave; Grenoble
+                        </p>
+                        <p>
+                            <strong>Adresse :</strong>60 rue de la Chimie,
+                                    38041 Grenoble
+                        </p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-num">3</span><span class="stat-desc">Infirmiers</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">4</span><span class="stat-desc">Patients</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">4</span><span class="stat-desc">Visites</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">5</span><span class="stat-desc">Actes</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page-infirmiers">
+                    <h2>&Eacute;quipe soignante</h2>
+                    <div class="grid-cards">
+                        <div class="card nurse-card">
+                            <div class="nurse-avatar">
+                                <span>SF</span>
+                            </div>
+                            <div class="nurse-info">
+                                <h3>Sarah Fr&eacute;chie</h3>
+                                <p class="badge">Identifiant : 001</p>
+                                <p class="file-name">
+                                    <small>Photo : sarah.png</small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card nurse-card">
+                            <div class="nurse-avatar">
+                                <span>SS</span>
+                            </div>
+                            <div class="nurse-info">
+                                <h3>Sophie Stick&eacute;</h3>
+                                <p class="badge">Identifiant : 002</p>
+                                <p class="file-name">
+                                    <small>Photo : sophie.jpg</small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card nurse-card">
+                            <div class="nurse-avatar">
+                                <span>PO</span>
+                            </div>
+                            <div class="nurse-info">
+                                <h3>Paul Ochon</h3>
+                                <p class="badge">Identifiant : 003</p>
+                                <p class="file-name">
+                                    <small>Photo : paul.png</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page-soins">
+                    <h2>Actes m&eacute;dicaux programm&eacute;s</h2>
+                    <div class="card">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Acte</th><th>Type</th><th>Cl&eacute;</th><th>Coefficient</th><th>Patient</th><th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="code-badge">109</span></td><td>pi</td><td>AMI</td><td>1</td><td>Yvon <strong>Al&eacute;cole</strong></td><td>2015-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-badge">300</span></td><td>pl</td><td>AMI</td><td>4</td><td>Elvire <strong>Orouge</strong></td><td>2015-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-badge">101</span></td><td>pi</td><td>AMI</td><td>1.5</td><td>Oscare <strong>Pien</strong></td><td>2015-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-badge">104</span></td><td>pi</td><td>AMI</td><td>2</td><td>Oscare <strong>Pien</strong></td><td>2015-12-08</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="code-badge">111</span></td><td>pi</td><td>AMI</td><td>3</td><td>Xavier <strong>Kapo&euml;tla</strong></td><td>2015-12-08</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="page" id="page-patients">
+                    <h2>Dossiers des patients</h2>
+                    <div class="patients-list">
+                        <article class="card patient-card">
+                            <div class="patient-header">
+                                <div>
+                                    <h3>Al&eacute;cole Yvon</h3>
+                                    <p class="patient-sub">N&eacute;(e) le 1998-08-22 &mdash; N&deg; S&eacute;curit&eacute; : 198082205545852</p>
+                                </div>
+                                <span class="genre-badge">M</span>
+                            </div>
+                            <p class="patient-address">
+                                <strong>Adresse : </strong>&Eacute;tage 6, 50 avenue F&eacute;lix Viallet,
+                                            38031 Grenoble
+                            </p>
+                            <div class="visits-section">
+                                <h4>Visites pr&eacute;vues</h4>
+                                <div class="visit-entry">
+                                    <p class="visit-meta">
+                                        <span>Date : <strong>2015-12-08</strong></span><span>
+                                                            Intervenant :
+                                                            <strong>Infirmier #001</strong></span>
+                                    </p>
+                                    <ul class="actes-inline">
+                                        <li>Acte #109 (AMI &times; 1)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card patient-card">
+                            <div class="patient-header">
+                                <div>
+                                    <h3>Orouge Elvire</h3>
+                                    <p class="patient-sub">N&eacute;(e) le 1982-03-08 &mdash; N&deg; S&eacute;curit&eacute; : 282036902305218</p>
+                                </div>
+                                <span class="genre-badge">F</span>
+                            </div>
+                            <p class="patient-address">
+                                <strong>Adresse : </strong>Rond-Point de la Croix de Vie,
+                                            38700 La Tronche
+                            </p>
+                            <div class="visits-section">
+                                <h4>Visites pr&eacute;vues</h4>
+                                <div class="visit-entry">
+                                    <p class="visit-meta">
+                                        <span>Date : <strong>2015-12-08</strong></span><span>
+                                                            Intervenant :
+                                                            <em>Non assign&eacute;</em></span>
+                                    </p>
+                                    <ul class="actes-inline">
+                                        <li>Acte #300 (AMI &times; 4)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card patient-card">
+                            <div class="patient-header">
+                                <div>
+                                    <h3>Pien Oscare</h3>
+                                    <p class="patient-sub">N&eacute;(e) le 1975-03-25 &mdash; N&deg; S&eacute;curit&eacute; : 275037306569202</p>
+                                </div>
+                                <span class="genre-badge">F</span>
+                            </div>
+                            <p class="patient-address">
+                                <strong>Adresse : </strong>rue Casimir Brenier,
+                                            38000 Grenoble
+                            </p>
+                            <div class="visits-section">
+                                <h4>Visites pr&eacute;vues</h4>
+                                <div class="visit-entry">
+                                    <p class="visit-meta">
+                                        <span>Date : <strong>2015-12-08</strong></span><span>
+                                                            Intervenant :
+                                                            <em>Non assign&eacute;</em></span>
+                                    </p>
+                                    <ul class="actes-inline">
+                                        <li>Acte #101 (AMI &times; 1.5)</li>
+                                        <li>Acte #104 (AMI &times; 2)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card patient-card">
+                            <div class="patient-header">
+                                <div>
+                                    <h3>Kapo&euml;tla Xavier</h3>
+                                    <p class="patient-sub">N&eacute;(e) le 2011-08-02 &mdash; N&deg; S&eacute;curit&eacute; : 111083306303521</p>
+                                </div>
+                                <span class="genre-badge">F</span>
+                            </div>
+                            <p class="patient-address">
+                                <strong>Adresse : </strong>25 rue des Martyrs,
+                                            38042 Grenoble
+                            </p>
+                            <div class="visits-section">
+                                <h4>Visites pr&eacute;vues</h4>
+                                <div class="visit-entry">
+                                    <p class="visit-meta">
+                                        <span>Date : <strong>2015-12-08</strong></span><span>
+                                                            Intervenant :
+                                                            <em>Non assign&eacute;</em></span>
+                                    </p>
+                                    <ul class="actes-inline">
+                                        <li>Acte #111 (AMI &times; 3)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>

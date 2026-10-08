@@ -2,5 +2,9 @@ bin/
 obj/
 /packages/
 riderModule.iml
+<<<<<<< HEAD
 /_ReSharper.Caches/
 .idea/
+=======
+/_ReSharper.Caches/
+>>>>>>> bf87259af1b2c24cbb111459b1f67eb7953ac93a

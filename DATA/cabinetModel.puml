@@ -1,0 +1,131 @@
+@startuml
+hide circle
+hide empty members
+
+class "/" as root
+
+class Cabinet {
+    nomC : String 
+    adresseC : Adresse
+}
+
+class EntiersPositifs  <<restriction : int>>{
+    supérieur ou égale à 0
+}
+
+class CodePostal  << restriction :int>>{
+    pattern "[0-9][0-9][0-9][0-9][0-9]"
+}
+
+class Nom  << restriction :String >>{
+    pattern "[A-Z][A-Za-z éèêëàâîïôöùûüç]+"
+
+}
+
+class Infirmiers {
+}
+
+class Infirmier {
+    (Attribut) idI : Indentifiant
+    nomI : Nom
+    prenomI : Nom
+    photo : Photo
+}
+
+class Identifiant  << restriction : int >>{
+    pattern "[0-9]{3}"
+}
+
+class Photo << restriction : String>>{
+    pattern ".*\.(jpg|png)"
+}
+
+class Patients {
+}
+
+class Patient {
+    nomP : Nom
+    prenomP : Nom
+    sexe : Sexe
+    naissance : date
+    adresseP : Adresse
+    numeroP : NumeroSecurite
+}
+
+class Sexe << enumeration : String>>{
+    F
+    M
+    Autre
+}
+
+class NumeroSecurite << restriction : String >>{
+    pattern "[12][0-9]{2}(0[1-9]|1[0-2])[0-9]{2}[0-9]{3}[0-9]{3}[0-9]{2}"
+}
+
+
+class Adresse {
+    etage : EntiersPositifs 
+    numero : EntiersPositifs
+    rue : String
+    codePostal : CodePostal
+    ville: Nom
+}
+
+class Visite {
+    (Attribut) date : date 
+    (Attribut) intervenant :  Identifiant
+}
+
+class Acte {
+    (Attribut) idA : Identifiant
+    (Attribut) type : TypeActe
+    (Attribut) cle : cleActe
+    (Attribut) coef : float
+}
+
+class TypeActe <<enumeration : String>> {
+    pi
+    pc
+    pl
+    sd
+}
+
+class CleActe <<enumeration : String>> {
+    AMI
+    AIS
+    DI
+}
+
+
+root <-- Cabinet
+Cabinet *-- Adresse : 1
+Cabinet *-- Infirmiers : 1
+Cabinet *-- Patients : 1
+
+Adresse *-- EntiersPositifs : 2
+Adresse *-- CodePostal : 1
+Adresse *-- Nom : 1
+note right of Adresse : etage est optionnel 
+
+Infirmiers *-- Infirmier : 1..*
+Infirmier *-- Nom : 2
+Infirmier *-- Identifiant : 1
+Infirmier *-- Photo : 1
+
+Patients *-- Patient : 1..*
+Patient *-- Adresse : 1
+Patient *-- Visite : 0..*
+Patient *-- Nom : 2
+Patient *-- Sexe : 1
+Patient *-- NumeroSecurite : 1
+
+Visite *-- Acte : 1..*
+
+Acte *-- TypeActe : 1
+Acte *-- CleActe : 1
+Acte *-- Identifiant : 1
+note left of Identifiant : Même identifiant que Infirmier
+
+
+
+@enduml

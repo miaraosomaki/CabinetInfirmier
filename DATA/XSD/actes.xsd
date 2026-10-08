@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.univ-grenoble-alpes.fr/l3miage/actes"
+        xmlns:cb="http://www.univ-grenoble-alpes.fr/l3miage/actes"
+        elementFormDefault="qualified">
+
+    <!-- Élément racine -->
+    <element name="ngap" type="cb:Ngap"/>
+
+    <!-- Type racine NGAP -->
+    <complexType name="Ngap">
+        <sequence>
+            <element name="types" type="cb:Types"/>
+            <element name="actes" type="cb:Actes"/>
+        </sequence>
+    </complexType>
+
+    <!-- Conteneur de la liste des types -->
+    <complexType name="Types">
+        <sequence>
+            <element name="type" type="cb:TypeDescription" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- Description d'un type d'acte (texte + attribut id) -->
+    <complexType name="TypeDescription">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="id" type="cb:TypeActe" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- Conteneur de la liste des actes -->
+    <complexType name="Actes">
+        <sequence>
+            <element name="acte" type="cb:ActeNGAP" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- Description d'un acte individuel (texte + attributs id, type, clé, coef) -->
+    <complexType name="ActeNGAP">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="id" type="cb:Identifiant" use="required"/>
+                <attribute name="type" type="cb:TypeActe" use="required"/>
+                <attribute name="clé" type="cb:CleActe" use="required"/>
+                <attribute name="coef" type="float" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!-- Réutilisation de tes types simples existants -->
+    <simpleType name="Identifiant">
+        <restriction base="int">
+            <pattern value="[0-9]{3}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="TypeActe">
+        <restriction base="string">
+            <enumeration value="pi"/>
+            <enumeration value="pc"/>
+            <enumeration value="pl"/>
+            <enumeration value="sd"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="CleActe">
+        <restriction base="string">
+            <enumeration value="AMI"/>
+            <enumeration value="AIS"/>
+            <enumeration value="DI"/>
+        </restriction>
+    </simpleType>
+
+</schema>
