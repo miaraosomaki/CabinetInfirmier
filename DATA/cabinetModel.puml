@@ -18,7 +18,7 @@ class CodePostal  << restriction :int>>{
 }
 
 class Nom  << restriction :String >>{
-    pattern "[A-Z][a-zéèêëàâîïôöùûüç]+"
+    pattern "[A-Z][A-Za-z éèêëàâîïôöùûüç]+"
 
 }
 
@@ -33,11 +33,11 @@ class Infirmier {
 }
 
 class Identifiant  << restriction : int >>{
-    pattern "[0-9][0-9][0-9]"
+    pattern "[0-9]{3}"
 }
 
 class Photo << restriction : String>>{
-    pattern "*.jpg"
+    pattern ".*\.(jpg|png)"
 }
 
 class Patients {
