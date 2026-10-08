@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="DATA\CSS\" />
       <Folder Include="DATA\HTML\" />
     </ItemGroup>
 
