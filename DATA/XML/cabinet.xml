@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<cabinet xmlns="https://www.univ-grenoble-alpes.fr/l3miage/medical"
+<cabinet xmlns="http://www.univ-grenoble-alpes.fr/l3miage/medical"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://www.univ-grenoble-alpes.fr/l3miage/medical ../XSD/cabinet.xsd"
+         xsi:schemaLocation="http://www.univ-grenoble-alpes.fr/l3miage/medical ../XSD/cabinet.xsd"
 >
         
         <nomC>Soins à Grenoble</nomC>
@@ -96,7 +96,7 @@
                 <patient>
                         <nomP>Kapoëtla</nomP>
                         <prenomP>Xavier</prenomP>
-                        <sexe>F</sexe>
+                        <sexe>M</sexe>
                         <naissance>2011-08-02</naissance>
                         <adresseP>
                                 <numero>25</numero>

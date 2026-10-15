@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:cb="https://www.univ-grenoble-alpes.fr/l3miage/medical"    
-        targetNamespace ="https://www.univ-grenoble-alpes.fr/l3miage/medical"
+        xmlns:cb="http://www.univ-grenoble-alpes.fr/l3miage/medical"    
+        targetNamespace ="http://www.univ-grenoble-alpes.fr/l3miage/medical"
         elementFormDefault="qualified"
 >
-    
-    <element name="cabinet" type="cb:Cabinet"/>
+
+    <element name="cabinet" type="cb:Cabinet">
+
+        <key name="cleInfirmier">
+            <selector xpath="cb:infirmiers/cb:infirmier"/>
+            <field xpath="@idI"/>
+        </key>
+
+        <keyref name="refIntervenant" refer="cb:cleInfirmier">
+            <selector xpath="cb:patients/cb:patient/cb:visite"/>
+            <field xpath="@intervenant" />
+        </keyref>
+
+    </element>
     
     <!--Cabinet-->
     <complexType name="Cabinet">
@@ -52,7 +64,7 @@
     <!--Type pour Infirmiers en général-->
     <complexType name="Infirmiers">
         <sequence>
-            <element name="infirmier" type="cb:Infirmier" minOccurs="1" maxOccurs="unbounded"/>
+            <element name="infirmier" type="cb:Infirmier" maxOccurs="unbounded"/>
         </sequence>
     </complexType>
     
@@ -65,13 +77,16 @@
         </sequence>
         <attribute name="idI" type="cb:Identifiant" use="required"/>
     </complexType>
-
+    
+    
     <!--Type pour les identifiants-->
     <simpleType name="Identifiant">
         <restriction base="int">
             <pattern value="[0-9]{3}"/>
         </restriction>
     </simpleType>
+    
+    
 
     <!--Type pour les photo-->
     <simpleType name="Photo">
@@ -83,7 +98,13 @@
     <!--Type pour les Patients-->
     <complexType name="Patients">
         <sequence>
-            <element name="patient" type="cb:Patient" minOccurs="1" maxOccurs="unbounded"/>
+            <element name="patient" type="cb:Patient"  maxOccurs="unbounded">
+                <!--Une visite par date-->
+                <unique name="uniciteVisitePatient">
+                    <selector xpath="cb:visite"/>
+                    <field xpath="@date"/>
+                </unique>
+            </element>
         </sequence>
     </complexType>
 
@@ -136,7 +157,7 @@
     <!--Type pour les visites-->
     <complexType name="Visite">
         <sequence>
-            <element name="acte" type="cb:Acte" minOccurs="1" maxOccurs="unbounded"/>
+            <element name="acte" type="cb:Acte" maxOccurs="unbounded"/>
         </sequence>
         <attribute name="date" type="date" use="required"/>
         <attribute name="intervenant" type="cb:Identifiant" />
@@ -168,9 +189,5 @@
             <enumeration value="DI"/><!---->
         </restriction>
     </simpleType>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
+
 </schema>
