@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
@@ -62,7 +62,7 @@
         <xsl:value-of select="ville"/>
     </xsl:template>
 
-    <!-- Une visite = une ligne du tableau -->
+    <!-- Une visite qui represente une ligne du tableau -->
     <xsl:template match="visite">
         <tr>
             <td><xsl:value-of select="@date"/></td>
@@ -84,7 +84,7 @@
         </tr>
     </xsl:template>
 
-    <!-- Un acte = un élément de liste -->
+    <!-- Un acte qui represente un élément de liste -->
     <xsl:template match="acte">
         <li><xsl:value-of select="."/></li>
     </xsl:template>

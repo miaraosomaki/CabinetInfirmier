@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:cb="http://www.univ-grenoble-alpes.fr/l3miage/medical"
-    xmlns:act="http://www.univ-grenoble-alpes.fr/l3miage/actes"
-    exclude-result-prefixes="cb act">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:cb="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+                xmlns:act="http://www.univ-grenoble-alpes.fr/l3miage/actes"
+                exclude-result-prefixes="cb act">
 
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
@@ -13,12 +13,12 @@
     <!-- Accès au fichier actes.xml (même dossier que cabinet.xml) -->
     <xsl:variable name="actes" select="document('actes.xml', /)/act:ngap"/>
 
-    <!-- ============ Template principal : la page ============ -->
+    <!-- Template principal : la page  -->
     <xsl:template match="/">
         <xsl:variable name="infirmier"
-            select="cb:cabinet/cb:infirmiers/cb:infirmier[@idI=$destinedId]"/>
+                      select="cb:cabinet/cb:infirmiers/cb:infirmier[@idI=$destinedId]"/>
         <xsl:variable name="mesPatients"
-            select="cb:cabinet/cb:patients/cb:patient[cb:visite/@intervenant=$destinedId]"/>
+                      select="cb:cabinet/cb:patients/cb:patient[cb:visite/@intervenant=$destinedId]"/>
 
         <html lang="fr">
             <head>
@@ -27,20 +27,20 @@
                 <link rel="stylesheet" type="text/css" href="../CSS/cabinet.css"/>
                 <!-- Script fourni par le sujet, intégré dans l'entête -->
                 <script type="text/javascript">
-function openFacture(prenom, nom, actes) {
-    var width = 500;
-    var height = 300;
-    if (window.innerWidth) {
-        var left = (window.innerWidth - width) / 2;
-        var top = (window.innerHeight - height) / 2;
-    } else {
-        var left = (document.body.clientWidth - width) / 2;
-        var top = (document.body.clientHeight - height) / 2;
-    }
-    var factureWindow = window.open('', 'facture', 'menubar=yes, scrollbars=yes, top=' + top + ', left=' + left + ', width=' + width + ', height=' + height + '');
-    factureText = "Facture pour : " + prenom + " " + nom;
-    factureWindow.document.write(factureText);
-}
+                    function openFacture(prenom, nom, actes) {
+                    var width = 500;
+                    var height = 300;
+                    if (window.innerWidth) {
+                    var left = (window.innerWidth - width) / 2;
+                    var top = (window.innerHeight - height) / 2;
+                    } else {
+                    var left = (document.body.clientWidth - width) / 2;
+                    var top = (document.body.clientHeight - height) / 2;
+                    }
+                    var factureWindow = window.open('', 'facture', 'menubar=yes, scrollbars=yes, top=' + top + ', left=' + left + ', width=' + width + ', height=' + height + '');
+                    factureText = "Facture pour : " + prenom + " " + nom;
+                    factureWindow.document.write(factureText);
+                    }
                 </script>
             </head>
             <body>
@@ -58,7 +58,7 @@ function openFacture(prenom, nom, actes) {
         </html>
     </xsl:template>
 
-    <!-- ============ Un patient ============ -->
+    <!-- Un patient  -->
     <xsl:template match="cb:patient">
         <div class="patient">
             <h2>
@@ -90,7 +90,7 @@ function openFacture(prenom, nom, actes) {
         </div>
     </xsl:template>
 
-    <!-- ============ L'adresse d'un patient ============ -->
+    <!--  L'adresse d'un patient  -->
     <xsl:template match="cb:adresseP">
         <p class="adresse">
             <xsl:if test="cb:etage">
@@ -110,7 +110,7 @@ function openFacture(prenom, nom, actes) {
         </p>
     </xsl:template>
 
-    <!-- ============ Un acte : libellé pris dans actes.xml ============ -->
+    <!--  Un acte : libellé pris dans actes.xml  -->
     <xsl:template match="cb:acte">
         <xsl:variable name="id" select="@idA"/>
         <li>
@@ -118,7 +118,7 @@ function openFacture(prenom, nom, actes) {
         </li>
     </xsl:template>
 
-    <!-- ============ Un acte (mode ids) : seulement son identifiant, pour le bouton ============ -->
+    <!-- Un acte (mode ids) : seulement son identifiant, pour le bouton  -->
     <xsl:template match="cb:acte" mode="ids">
         <xsl:value-of select="@idA"/>
         <xsl:if test="position() != last()">
