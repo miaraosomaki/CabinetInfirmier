@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><patient>
+    <nom>Kapoëtla</nom>
+    <prénom>Xavier</prénom>
+    <sexe>M</sexe>
+    <naissance>2011-08-02</naissance>
+    <numéroSS>111083306303521</numéroSS>
+    <adresse>
+        <numéro>25</numéro>
+        <rue>rue des Martyrs</rue>
+        <codePostal>38042</codePostal>
+        <ville>Grenoble</ville>
+    </adresse>
+    <visite date="2015-12-08">
+        <intervenant>
+            <nom>Stické</nom>
+            <prénom>Sophie</prénom>
+        </intervenant>
+        <acte>Injection d'un ou plusieurs allergènes, poursuivant un traitement d'hyposensibilisation spécifique, selon le protocole écrit, y compris la surveillance, la tenue du dossier de soins, la transmission des informations au médecin prescripteur.</acte>
+    </visite>
+</patient>

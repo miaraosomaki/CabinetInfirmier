@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <cabinet xmlns="http://www.univ-grenoble-alpes.fr/l3miage/medical"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.univ-grenoble-alpes.fr/l3miage/medical ../XSD/cabinet.xsd"
->
-        
+         xsi:schemaLocation="http://www.univ-grenoble-alpes.fr/l3miage/medical ../XSD/cabinet.xsd">
+
         <nomC>Soins à Grenoble</nomC>
-        
+
         <adresseC>
                 <numero>60</numero>
                 <rue>rue de la Chimie</rue>
                 <codePostal>38041</codePostal>
                 <ville>Grenoble</ville>
         </adresseC>
-        
+
         <infirmiers>
-                
+
                 <infirmier idI="001">
                         <nomI>Fréchie</nomI>
                         <prenomI>Sarah</prenomI>
                         <photo>sarah.png</photo>
                 </infirmier>
-                
+
                 <infirmier idI="002">
                         <nomI>Stické</nomI>
                         <prenomI>Sophie</prenomI>
                         <photo>sophie.jpg</photo>
                 </infirmier>
-                
+
                 <infirmier idI="003">
                         <nomI>Ochon</nomI>
                         <prenomI>Paul</prenomI>
                         <photo>paul.png</photo>
                 </infirmier>
-                                
+
         </infirmiers>
-        
+
         <patients>
-                
+
                 <!--patient 1-->
                 <patient>
                         <nomP>Alécole</nomP>
@@ -85,13 +84,13 @@
                                 <ville>Grenoble</ville>
                         </adresseP>
                         <numeroP>275037306569202</numeroP>
-                        <visite date="2015-12-08">
+                        <visite date="2015-12-08" intervenant="001">
                                 <acte idA="101" type="pi" cle="AMI" coef="1.5"/>
                                 <acte idA="104" type="pi" cle="AMI" coef="2"/>
                         </visite>
                 </patient>
-                
-                
+
+
                 <!--patient 4-->
                 <patient>
                         <nomP>Kapoëtla</nomP>
@@ -105,10 +104,10 @@
                                 <ville>Grenoble</ville>
                         </adresseP>
                         <numeroP>111083306303521</numeroP>
-                        <visite date="2015-12-08">
+                        <visite date="2015-12-08" intervenant="002">
                                 <acte idA="111" type="pi" cle="AMI" coef="3"/>
                         </visite>
                 </patient>
         </patients>
-
+        
 </cabinet>
